@@ -30,6 +30,7 @@ RUN set -eux; \
 		dpkg-dev \
 		libgdbm-dev \
 		ruby \
+		gdb \
 	; \
 	rm -rf /var/lib/apt/lists/*; \
 	\
@@ -57,6 +58,7 @@ RUN set -eux; \
 		--build="$gnuArch" \
 		--disable-install-doc \
 		--enable-shared \
+		optflags=-Og \
 	; \
 	make -j "$(nproc)"; \
 	make install; \
